@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0812">
+  <title>Quantum Music</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-icon">♫</div>
+        <div>
+          <h1>Quantum<span>music</span></h1>
+          <p>YOUR SOUND. YOUR UNIVERSE.</p>
+        </div>
+      </div>
+      <button class="icon-btn" id="addTop" aria-label="Add music">＋</button>
+    </header>
+
+    <main>
+      <section class="welcome">
+        <p class="eyebrow">YOUR PERSONAL SOUNDSPACE</p>
+        <h2>Feel the <span>frequency.</span></h2>
+        <p class="subtext">Your music, your mood, your universe.</p>
+      </section>
+
+      <section class="player-card">
+        <div class="cover-wrap">
+          <div class="cover" id="cover">
+            <div class="cover-orb"></div>
+            <div class="cover-equalizer">
+              <i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <span class="cover-note">♫</span>
+            <div class="cover-label">Quantum / AUDIO</div>
+          </div>
+          <div class="cover-glow"></div>
+        </div>
+
+        <div class="track-info">
+          <div class="track-text">
+            <h2 id="songTitle">No song selected</h2>
+            <p id="songArtist">Choose music from your device</p>
+          </div>
+          <button id="favoriteBtn" class="heart-btn"
+            aria-label="Favorite song" aria-pressed="false">♡</button>
+        </div>
+
+        <div class="timeline">
+          <input id="seekBar" type="range" min="0" max="1000"
+            value="0" aria-label="Song progress">
+          <div class="time-row">
+            <span id="currentTime">0:00</span>
+            <span id="duration">0:00</span>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="shuffleBtn" class="control-btn small"
+            aria-label="Shuffle" aria-pressed="false">⤨</button>
+          <button id="prevBtn" class="control-btn"
+            aria-label="Previous song">|◀</button>
+          <button id="playBtn" class="play-btn"
+            aria-label="Play">▶</button>
+          <button id="nextBtn" class="control-btn"
+            aria-label="Next song">▶|</button>
+          <button id="repeatBtn" class="control-btn small"
+            aria-label="Repeat mode" aria-pressed="false">↻</button>
+        </div>
+
+        <div class="volume-row">
+          <span>🔈</span>
+          <input id="volumeBar" type="range" min="0" max="100"
+            value="80" aria-label="Volume">
+          <span>🔊</span>
+        </div>
+
+        <div class="sleep-panel">
+          <label for="sleepSelect">☾ Sleep timer</label>
+          <div class="sleep-controls">
+            <select id="sleepSelect" aria-label="Sleep timer duration">
+              <option value="0">Off</option>
+              <option value="5">5 minutes</option>
+              <option value="10">10 minutes</option>
+              <option value="15">15 minutes</option>
+              <option value="30">30 minutes</option>
+              <option value="45">45 minutes</option>
+              <option value="60">60 minutes</option>
+              <option value="90">90 minutes</option>
+            </select>
+            <span id="sleepCountdown">Timer off</span>
+          </div>
+        </div>
+
+        <p id="status" class="status" role="status" aria-live="polite">
+          Ready for your soundtrack
+        </p>
+      </section>
+
+      <section class="library">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">YOUR COLLECTION</p>
+            <h2>My Library <span id="songCount">(0)</span></h2>
+          </div>
+          <button class="add-btn" id="addBtn">＋ Add songs</button>
+        </div>
+
+        <div class="search-wrap">
+          <span>⌕</span>
+          <input id="searchInput" type="search"
+            placeholder="Search your music..." aria-label="Search music">
+        </div>
+
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">♫</div>
+          <h3>Your library is waiting</h3>
+          <p>Add music stored on your phone to get started.</p>
+          <button class="primary-btn" id="emptyAddBtn">Choose music</button>
+        </div>
+
+        <div id="songList" class="song-list"></div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-logo">✦ Quantum MUSIC</div>
+      <p>MADE FOR YOUR FREQUENCY</p>
+    </footer>
+  </div>
+
+  <input type="file" id="fileInput" accept="audio/*,.mp3,.m4a,.aac,.wav,.ogg,.flac,.opus" multiple hidden>
+
+  <audio id="audio" preload="metadata"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
